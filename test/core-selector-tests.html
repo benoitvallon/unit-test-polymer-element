@@ -64,6 +64,26 @@
     });
     flush();
 
+    test('if the selected item has the correct CSS class', function() {
+      setTimeout(function() {
+
+        // check the expected number of core-select events
+        // have been fired
+        assert.equal(selectEventCounter, 1);
+
+        // check the core-selected class is contained in the
+        // classList for the selected item
+        assert.isTrue(s.children[2].classList.contains('core-selected'));
+
+        // check the selectedItem attribute value is equal to
+        // the child we set it to
+        assert.equal(s.selectedItem, s.children[2]);
+
+        done();
+
+      }, 50);
+    });
+
   });
 
   </script>
