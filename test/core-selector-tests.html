@@ -39,6 +39,15 @@
     test('nothing is selected by default', function() {
       assert.equal(s.selected, null);
     });
+    test('if an attribute is the default value expected', function() {
+      assert.isFalse(s.multi);
+    });
+    test('if an attribute is the default value expected', function() {
+      assert.equal(s.items.length, 3);
+    });
+    test('if the correct class is used on selection', function() {
+      assert.equal(s.selectedClass, 'core-selected');
+    });
   });
   </script>
 
