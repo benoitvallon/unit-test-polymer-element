@@ -30,9 +30,11 @@
   </core-selector>
 
   <script>
+
   var s = document.querySelector('#selector1');
 
   suite('<core-selector>', function() {
+
     test('our first test', function() {
       // ...
     });
@@ -48,7 +50,22 @@
     test('if the correct class is used on selection', function() {
       assert.equal(s.selectedClass, 'core-selected');
     });
+
+    var selectEventCounter = 0;
+    test('if core-select is fired when a different item in a list is selected',
+    function() {
+      s.addEventListener('core-select', function(e) {
+        if (e.detail.isSelected){
+          selectEventCounter++;
+          assert.equal(e.detail.item, s.selectedItem);
+        }
+      });
+      s.selected = 2;
+    });
+    flush();
+
   });
+
   </script>
 
 </body>
